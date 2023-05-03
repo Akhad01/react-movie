@@ -1,0 +1,82 @@
+@use '../../scss/' as *;
+
+.main-slider__item {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 9rem 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color: $black, $alpha: 0.6);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__info {
+      width: 55%;
+      padding: 0 3rem;
+      position: relative;
+
+      & > * ~ * {
+        margin-top: 3rem;
+      }
+
+      @include tablet {
+        width: 100%;
+      }
+
+      .title {
+        font-weight: 700;
+        font-size: 5rem;
+        line-height: 1;
+
+        @include tablet {
+          font-size: 4rem;
+        }
+      }
+
+      .overview {
+        font-weight: 700;
+      }
+    }
+
+    &__poster {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+
+      img {
+        width: 400px;
+        border-radius: 40px;
+        transition: transform 0.7s ease;
+      }
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+}
