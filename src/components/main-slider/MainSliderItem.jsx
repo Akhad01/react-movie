@@ -1,6 +1,9 @@
 import React from 'react'
+
 import Button from '../button/Button'
+
 import apiConfig from '../../api/apiConfig'
+import tmdbApi, { category } from '../../api/tmbdApi'
 
 const MainSliderItem = (props) => {
   const item = props.item
@@ -9,11 +12,27 @@ const MainSliderItem = (props) => {
     item.backdrop_path ? item.backdrop_path : item.poster_path
   )
 
-  const setModalActive = () => {
-    console.log('active')
+  const setModalActive = async () => {
+    const modal = document.querySelector(`#modal_${item.id}`)
+
+    const videos = await tmdbApi.getVideos(category.movie, item.id)
+
+    if (videos.data.results.length > 0) {
+      const videoSrc =
+        'https://www.youtube.com/embed/' + videos.data.results[0].key
+
+      modal
+        .querySelector('.modal__content > iframe')
+        .setAttribute('src', videoSrc)
+
+      console.log('vid', videos)
+    } else {
+      modal.querySelector('.modal__content').innerHTML = 'No trailer'
+    }
+
+    modal.classList.toggle('active')
   }
 
-  console.log('item', item)
   return (
     <div
       className="main-slider__item"

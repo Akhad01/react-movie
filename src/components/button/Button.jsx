@@ -2,7 +2,6 @@ import React from 'react'
 import './button.scss'
 
 const Button = (props) => {
-  console.log('prop', props)
   return (
     <button
       className="btn"
@@ -18,9 +17,5 @@ const Button = (props) => {
     </button>
   )
 }
-
-// const OutlineButton = (props) => {
-
-// }
 
 export default Button
