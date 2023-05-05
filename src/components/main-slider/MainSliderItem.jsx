@@ -15,6 +15,8 @@ const MainSliderItem = (props) => {
   const setModalActive = async () => {
     const modal = document.querySelector(`#modal_${item.id}`)
 
+    console.log('modal', modal)
+
     const videos = await tmdbApi.getVideos(category.movie, item.id)
 
     if (videos.data.results.length > 0) {
@@ -24,8 +26,6 @@ const MainSliderItem = (props) => {
       modal
         .querySelector('.modal__content > iframe')
         .setAttribute('src', videoSrc)
-
-      console.log('vid', videos)
     } else {
       modal.querySelector('.modal__content').innerHTML = 'No trailer'
     }

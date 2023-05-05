@@ -11,8 +11,6 @@ const Modal = (props) => {
     setActive(props.active)
   }, [props.active])
 
-  console.log('active', active)
-
   return (
     <div id={props.id} className={`modal ${active ? 'active' : ''}`}>
       {props.children}
