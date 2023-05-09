@@ -20,7 +20,7 @@ const MovieCard = (props) => {
         </div>
         <div className="movie-content">
           <div className="movie-content-header">
-            <h3 className="movie-title">Man of Steel</h3>
+            <h3 className="movie-title">{item.title || item.name}</h3>
           </div>
           <div className="movie-info">
             <div className="info-section">

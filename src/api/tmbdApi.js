@@ -7,7 +7,7 @@ export const category = {
 
 export const movieType = {
   popular: 'popular',
-  uncoming: 'uncoming',
+  upcoming: 'upcoming',
   top_rated: 'top_rated',
 }
 
@@ -42,6 +42,12 @@ const tmdbApi = {
     const url = category[cate] + '/' + id + '/semilar'
 
     return axiosClient.get(url, { params: {} })
+  },
+
+  search: (cate, params) => {
+    const url = 'search/' + category[cate]
+
+    return axiosClient.get(url, params)
   },
 }
 

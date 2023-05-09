@@ -26,7 +26,7 @@ const MovieList = (props) => {
             break
         }
       } else {
-        response = await tmdbApi.semilar(props.category, props.id)
+        response = await tmdbApi.similar(props.category, props.id)
       }
 
       setItems(response.data.results)
