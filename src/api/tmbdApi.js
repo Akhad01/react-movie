@@ -39,7 +39,7 @@ const tmdbApi = {
   },
 
   similar: (cate, id) => {
-    const url = category[cate] + '/' + id + '/semilar'
+    const url = category[cate] + '/' + id + '/similar'
 
     return axiosClient.get(url, { params: {} })
   },
@@ -48,6 +48,17 @@ const tmdbApi = {
     const url = 'search/' + category[cate]
 
     return axiosClient.get(url, params)
+  },
+
+  detail: (cate, id, params) => {
+    const url = category[cate] + '/' + id
+
+    return axiosClient.get(url, { params })
+  },
+
+  credits: (cate, id) => {
+    const url = category[cate] + '/' + id + '/credits'
+    return axiosClient.get(url, { params: {} })
   },
 }
 
