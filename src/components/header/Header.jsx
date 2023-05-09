@@ -14,10 +14,10 @@ const headerNav = [
     name: 'Movies',
     path: './movie',
   },
-  // {
-  //   name: 'TV Series',
-  //   path: './tv',
-  // },
+  {
+    name: 'TV Series',
+    path: './tv',
+  },
 ]
 
 const Header = () => {
