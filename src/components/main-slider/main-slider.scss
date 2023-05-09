@@ -1,5 +1,9 @@
 @use '../../scss/' as *;
 
+.main-slider {
+  margin-bottom: 3rem;
+}
+
 .main-slider__item {
   width: 100%;
   background-position: center;
