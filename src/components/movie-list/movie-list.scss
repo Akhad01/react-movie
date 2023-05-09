@@ -1,0 +1,25 @@
+@use '../../scss/' as *;
+
+// .movie-list {
+//   .swiper-slide {
+//     width: 15%;
+//   }
+// }
+
+.movie-list {
+  .swiper-slide {
+    width: 15%;
+
+    @include tablet {
+      width: 30%;
+    }
+
+    @include mobile {
+      width: 40%;
+    }
+
+    @media (max-width: 400px) {
+      width: 70%;
+    }
+  }
+}
