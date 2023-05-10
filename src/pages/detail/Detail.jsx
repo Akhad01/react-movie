@@ -28,6 +28,14 @@ const Details = () => {
     <>
       {item && (
         <>
+          <div
+            className="baner"
+            style={{
+              backgroundImage: `url(${apiConfig.originalImage(
+                item.backdrop_path || item.poster_path
+              )})`,
+            }}
+          ></div>
           <div className="movie-detail container">
             <div className="movie-detail__poster">
               <div
