@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Button, { ButtonDetail } from '../button/Button'
+import { ButtonDetail } from '../button/Button'
 
 import apiConfig from '../../api/apiConfig'
 import tmdbApi, { category } from '../../api/tmbdApi'
@@ -18,8 +18,6 @@ const MainSliderItem = (props) => {
 
   const setModalActive = async () => {
     const modal = document.querySelector(`#modal_${item.id}`)
-
-    console.log('modal', modal)
 
     const videos = await tmdbApi.getVideos(category.movie, item.id)
 

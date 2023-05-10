@@ -24,7 +24,6 @@ const Header = () => {
   const { pathname } = useLocation()
   const headerRef = useRef(null)
 
-  console.log('pathname', pathname)
   const active = headerNav.findIndex((e) => e.path === pathname)
 
   useEffect(() => {

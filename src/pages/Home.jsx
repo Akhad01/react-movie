@@ -1,6 +1,8 @@
 import React from 'react'
+
 import MainSlider from '../components/main-slider/MainSlider'
 import MovieList from '../components/movie-list/MovieList'
+
 import { category, movieType, tvType } from '../api/tmbdApi'
 
 const Home = () => {

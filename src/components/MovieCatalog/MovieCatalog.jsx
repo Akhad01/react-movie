@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
+import tmdbApi, { category, movieType, tvType } from '../../api/tmbdApi'
+
+import Search from '../Search/Search'
+import MovieCard from '../movie-card/MovieCard'
 
 import './movie-catalog.scss'
-import Search from '../Search/Search'
-import { useParams } from 'react-router-dom'
-import tmdbApi, { category, movieType, tvType } from '../../api/tmbdApi'
-import MovieCard from '../movie-card/MovieCard'
 
 const MovieCatalog = (props) => {
   const [items, setItems] = useState([])

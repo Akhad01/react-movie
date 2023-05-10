@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+
 import tmdbApi from '../../api/tmbdApi'
 import apiConfig from '../../api/apiConfig'
 
-import './detail.scss'
 import CastList from './CastList'
 import MovieList from '../../components/movie-list/MovieList'
+import ButtonVideo from '../../components/button/Button'
+import TrailerModal from '../../components/modal/Modal'
+
+import './detail.scss'
 
 const Details = () => {
   const { category, id } = useParams()
@@ -22,7 +26,24 @@ const Details = () => {
     getDetail()
   }, [category, id])
 
-  console.log('item', item)
+  const setModalActive = async () => {
+    const modal = document.querySelector(`#modal_${item.id}`)
+
+    const videos = await tmdbApi.getVideos(category, id)
+
+    if (videos.data.results.length > 0) {
+      const videSrc =
+        'https://www.youtube.com/embed/' + videos.data.results[0].key
+
+      modal
+        .querySelector('.modal__content > iframe')
+        .setAttribute('src', videSrc)
+    } else {
+      modal.querySelector('.modal__content').innerHTML = 'No trailer'
+    }
+
+    modal.classList.toggle('active')
+  }
 
   return (
     <>
@@ -58,6 +79,8 @@ const Details = () => {
                   ))}
               </ul>
               <p className="description">{item.overview}</p>
+              <ButtonVideo onClick={setModalActive}>Watch now</ButtonVideo>
+              <TrailerModal item={item} />
               <div className="cast">
                 <h2>Casts</h2>
                 <CastList id={item.id} />
@@ -66,7 +89,7 @@ const Details = () => {
           </div>
           <div className="section similar container">
             <div className="mb-3">
-              <h2>Semilar</h2>
+              <h2>Similar</h2>
             </div>
             <MovieList category={category} type="similar" id={item.id} />
           </div>

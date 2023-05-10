@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-
 import { RiCloseFill } from 'react-icons/ri'
 
 import './modal.scss'
@@ -18,7 +17,7 @@ const Modal = (props) => {
   )
 }
 
-export const ModalContent = (props) => {
+const ModalContent = (props) => {
   const contentRef = useRef(null)
 
   const closeModal = () => {
@@ -37,4 +36,26 @@ export const ModalContent = (props) => {
   )
 }
 
-export default Modal
+const TrailerModal = (props) => {
+  const item = props.item
+  const iframeRef = useRef(null)
+
+  const onClose = () => {
+    return iframeRef.current.setAttribute('src', '')
+  }
+
+  return (
+    <Modal active={false} id={`modal_${item.id}`}>
+      <ModalContent onClose={onClose}>
+        <iframe
+          ref={iframeRef}
+          width="100%"
+          height="380px"
+          title="trailer"
+        ></iframe>
+      </ModalContent>
+    </Modal>
+  )
+}
+
+export default TrailerModal

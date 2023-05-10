@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import tmdbApi, { movieType } from '../../api/tmbdApi'
+
+import MainSliderItem from './MainSliderItem'
+import TrailerModal from '../modal/Modal'
 
 import 'swiper/css'
 import './main-slider.scss'
-import tmdbApi, { movieType } from '../../api/tmbdApi'
-import MainSliderItem from './MainSliderItem'
-import Modal, { ModalContent } from '../modal/Modal'
 
 const MainSlider = () => {
   const [movieItem, setMovieItem] = useState([])
@@ -45,31 +46,9 @@ const MainSlider = () => {
         })}
       </Swiper>
       {movieItem.map((item, i) => {
-        return <TrilerModal key={i} item={item} />
+        return <TrailerModal key={i} item={item} />
       })}
     </div>
-  )
-}
-
-const TrilerModal = (props) => {
-  const item = props.item
-  const iframeRef = useRef(null)
-
-  const onClose = () => {
-    return iframeRef.current.setAttribute('src', '')
-  }
-
-  return (
-    <Modal active={false} id={`modal_${item.id}`}>
-      <ModalContent onClose={onClose}>
-        <iframe
-          ref={iframeRef}
-          width="100%"
-          height="380px"
-          title="trailer"
-        ></iframe>
-      </ModalContent>
-    </Modal>
   )
 }
 

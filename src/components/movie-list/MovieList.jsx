@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import tmdbApi, { category } from '../../api/tmbdApi'
+
 import MovieCard from '../movie-card/MovieCard'
 
 import './movie-list.scss'
