@@ -1,4 +1,8 @@
 import React from 'react'
+
+import { IoPlay } from 'react-icons/io5'
+import { BiMoviePlay } from 'react-icons/bi'
+
 import './button.scss'
 
 const ButtonVideo = (props) => {
@@ -13,6 +17,7 @@ const ButtonVideo = (props) => {
           : null
       }
     >
+      <IoPlay size={'16px'} />
       {props.children}
     </button>
   )
@@ -30,7 +35,7 @@ export const ButtonDetail = (props) => {
           : null
       }
     >
-      {props.children}
+      <BiMoviePlay fontSize={'16px'} /> {props.children}
     </button>
   )
 }
