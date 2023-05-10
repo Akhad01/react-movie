@@ -65,7 +65,7 @@ const TrilerModal = (props) => {
         <iframe
           ref={iframeRef}
           width="100%"
-          height="500px"
+          height="380px"
           title="trailer"
         ></iframe>
       </ModalContent>

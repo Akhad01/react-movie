@@ -1,10 +1,10 @@
 import React from 'react'
 import './button.scss'
 
-const Button = (props) => {
+const ButtonVideo = (props) => {
   return (
     <button
-      className="btn"
+      className="btn-video"
       onClick={
         props.onClick
           ? () => {
@@ -18,4 +18,21 @@ const Button = (props) => {
   )
 }
 
-export default Button
+export const ButtonDetail = (props) => {
+  return (
+    <button
+      className="btn-detail"
+      onClick={
+        props.onClick
+          ? () => {
+              props.onClick()
+            }
+          : null
+      }
+    >
+      {props.children}
+    </button>
+  )
+}
+
+export default ButtonVideo

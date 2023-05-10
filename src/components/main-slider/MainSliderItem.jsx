@@ -1,11 +1,15 @@
 import React from 'react'
 
-import Button from '../button/Button'
+import Button, { ButtonDetail } from '../button/Button'
 
 import apiConfig from '../../api/apiConfig'
 import tmdbApi, { category } from '../../api/tmbdApi'
+import ButtonVideo from '../button/Button'
+import { useNavigate } from 'react-router-dom'
 
 const MainSliderItem = (props) => {
+  const navigator = useNavigate()
+
   const item = props.item
 
   const background = apiConfig.originalImage(
@@ -43,7 +47,10 @@ const MainSliderItem = (props) => {
           <h2 className="title">{item.title}</h2>
           <div className="overview">{item.overview}</div>
           <div className="btns">
-            <Button onClick={setModalActive}>Watch now</Button>
+            <ButtonVideo onClick={setModalActive}>Watch Video</ButtonVideo>
+            <ButtonDetail onClick={() => navigator('./movie/' + item.id)}>
+              Watch Now
+            </ButtonDetail>
           </div>
         </div>
         <div className="main-slider__item__content__poster">

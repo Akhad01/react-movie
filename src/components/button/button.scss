@@ -1,17 +1,35 @@
 @use '../../scss/' as *;
 
-.btn {
+.btn-video {
   border: 0;
   text-align: center;
   display: inline-block;
   padding: 14px;
-  width: 150px;
+  width: 200px;
   margin: 7px;
   color: $white;
   background-color: #36a2eb;
-  border-radius: 8px;
+  border-radius: 25px;
   font-family: 'proxima-nova-soft', sans-serif;
   font-weight: 600;
   text-decoration: none;
   transition: box-shadow 200ms ease-out;
+  cursor: pointer;
+}
+
+.btn-detail {
+  border: 1px solid $white;
+  text-align: center;
+  display: inline-block;
+  padding: 14px;
+  width: 200px;
+  margin: 7px;
+  color: $white;
+  background-color: transparent;
+  border-radius: 25px;
+  font-family: 'proxima-nova-soft', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: box-shadow 200ms ease-out;
+  cursor: pointer;
 }
