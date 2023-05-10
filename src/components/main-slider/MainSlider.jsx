@@ -3,10 +3,14 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import tmdbApi, { movieType } from '../../api/tmbdApi'
 
+import { Pagination } from 'swiper'
+
 import MainSliderItem from './MainSliderItem'
 import TrailerModal from '../modal/Modal'
 
 import 'swiper/css'
+import 'swiper/css/pagination'
+
 import './main-slider.scss'
 
 const MainSlider = () => {
@@ -29,7 +33,13 @@ const MainSlider = () => {
 
   return (
     <div className="main-slider">
-      <Swiper slidesPerView={1} spaceBetween={0}>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={0}
+        loop={true}
+        pagination
+        modules={[Pagination]}
+      >
         {movieItem.map((item, i) => {
           return (
             <SwiperSlide key={i}>
